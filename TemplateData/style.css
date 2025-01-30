@@ -46,6 +46,7 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  z-index: 1000; /* Ensure the footer is on top */
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 

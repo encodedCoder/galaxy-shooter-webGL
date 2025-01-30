@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Unity WebGL Player | Galaxy Shooter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Galaxy Shooter - A Unity WebGL game" />
+    <meta name="author" content="Suresh" />
+    <meta name="keywords" content="Unity, WebGL, Game, Galaxy Shooter" />
+    <title>Galaxy Shooter by Suresh</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
     <link rel="stylesheet" href="TemplateData/style.css" />
     <link
@@ -30,12 +34,6 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
               <a
@@ -66,7 +64,10 @@
     </div>
 
     <footer class="bg-dark text-white text-center py-3">
-      <p>&copy; 2023 Galaxy Shooter. All rights reserved.</p>
+      <p>
+        &copy; <span id="current-year"></span> Galaxy Shooter. All rights
+        reserved.
+      </p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -80,12 +81,6 @@
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length
@@ -120,16 +115,7 @@
         showBanner: unityShowBanner,
       };
 
-      // By default Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
         var meta = document.createElement("meta");
         meta.name = "viewport";
         meta.content =
@@ -137,15 +123,8 @@
         document.getElementsByTagName("head")[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
         unityShowBanner("WebGL builds are not supported on mobile devices.");
       } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
         canvas.style.width = "960px";
         canvas.style.height = "600px";
       }
@@ -169,6 +148,10 @@
           });
       };
       document.body.appendChild(script);
+
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
     </script>
   </body>
 </html>
