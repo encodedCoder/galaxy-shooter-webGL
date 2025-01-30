@@ -1,16 +1,150 @@
-body { padding: 0; margin: 0 }
-#unity-container { position: absolute }
-#unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%) }
-#unity-container.unity-mobile { width: 100%; height: 100% }
-#unity-canvas { background: #231F20 }
-.unity-mobile #unity-canvas { width: 100%; height: 100% }
-#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
-#unity-logo { width: 154px; height: 130px; background: url('unity-logo-dark.png') no-repeat center }
-#unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; margin-left: 6.5px; background: url('progress-bar-empty-dark.png') no-repeat center }
-#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('progress-bar-full-dark.png') no-repeat center }
-#unity-footer { position: relative }
-.unity-mobile #unity-footer { display: none }
-#unity-webgl-logo { float:left; width: 204px; height: 38px; background: url('webgl-logo.png') no-repeat center }
-#unity-build-title { float: right; margin-right: 10px; line-height: 38px; font-family: arial; font-size: 18px }
-#unity-fullscreen-button { float: right; width: 38px; height: 38px; background: url('fullscreen-button.png') no-repeat center }
-#unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure the header is on top */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#unity-container {
+  position: absolute;
+  top: 80px; /* Adjust to ensure it is below the header */
+  bottom: 60px; /* Adjust to ensure it is above the footer */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#unity-container.unity-desktop {
+  width: 960px;
+  height: calc(
+    100% - 140px
+  ); /* Adjust height to account for header and footer */
+}
+
+#unity-container.unity-mobile {
+  width: 100%;
+  height: calc(
+    100% - 140px
+  ); /* Adjust height to account for header and footer */
+}
+
+#unity-canvas {
+  background: #231f20;
+}
+
+.unity-mobile #unity-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#unity-loading-bar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#unity-logo {
+  width: 154px;
+  height: 130px;
+  background: url("unity-logo-dark.png") no-repeat center;
+}
+
+#unity-progress-bar-empty {
+  width: 141px;
+  height: 18px;
+  margin-top: 10px;
+  margin-left: 6.5px;
+  background: url("progress-bar-empty-dark.png") no-repeat center;
+}
+
+#unity-progress-bar-full {
+  width: 0%;
+  height: 18px;
+  margin-top: 10px;
+  background: url("progress-bar-full-dark.png") no-repeat center;
+}
+
+#unity-footer {
+  position: relative;
+}
+
+.unity-mobile #unity-footer {
+  display: none;
+}
+
+#unity-webgl-logo {
+  float: left;
+  width: 204px;
+  height: 38px;
+  background: url("webgl-logo.png") no-repeat center;
+}
+
+#unity-build-title {
+  float: right;
+  margin-right: 10px;
+  line-height: 38px;
+  font-family: arial;
+  font-size: 18px;
+}
+
+#unity-fullscreen-button {
+  float: right;
+  width: 38px;
+  height: 38px;
+  background: url("fullscreen-button.png") no-repeat center;
+}
+
+#unity-warning {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%);
+  background: white;
+  padding: 10px;
+  display: none;
+}
